@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * This is a built in model for a table that I am not utilizing.
+ * You asked for no authentication thus there will be none!
+ */
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
