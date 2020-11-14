@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateEpisodesTable extends Migration
 {
@@ -29,6 +30,13 @@ class CreateEpisodesTable extends Migration
             $table->primary('guid');
             // foreign key will need to be handled after all tables exist... this will be in a future migration.
         });
+
+        DB::unprepared("
+        CREATE DEFINER = CURRENT_USER TRIGGER `episodes_BEFORE_INSERT` BEFORE INSERT ON `episodes` FOR EACH ROW
+        BEGIN
+            SET NEW.guid = UUID();
+        END
+        ");
     }
 
     /**
