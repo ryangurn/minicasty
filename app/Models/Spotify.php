@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Episode extends Model
+class Spotify extends Model
 {
     use HasFactory;
 
     // the table name explicitly defined.
-    protected $table = 'episodes';
+    protected $table = 'spotify';
     // declare the primary key
     protected $primaryKey = 'guid';
     // declare the primary key type
@@ -18,13 +18,12 @@ class Episode extends Model
 
     // which elements can be filled by mass assignment
     protected $fillable = [
-        'title',
-        'author',
-        'audio',
-        'publishing_date',
-        'description',
-        'image',
-        'explicit'
+        'guid',
+        'restriction',
+        'order',
+        'start',
+        'end',
+        'keywords'
     ];
 
     // relationships to come here...

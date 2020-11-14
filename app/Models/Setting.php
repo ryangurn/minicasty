@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Episode extends Model
+class Setting extends Model
 {
     use HasFactory;
 
-    // the table name explicitly defined.
-    protected $table = 'episodes';
+    // the table name explicitly defined
+    protected $table = 'settings';
     // declare the primary key
     protected $primaryKey = 'guid';
     // declare the primary key type
@@ -18,15 +18,8 @@ class Episode extends Model
 
     // which elements can be filled by mass assignment
     protected $fillable = [
-        'title',
-        'author',
-        'audio',
-        'publishing_date',
-        'description',
-        'image',
-        'explicit'
+        'guid',
+        'key',
+        'value'
     ];
-
-    // relationships to come here...
-
 }
