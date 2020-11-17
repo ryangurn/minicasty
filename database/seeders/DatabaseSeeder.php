@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // standalone tables first
+        $this->call(CategorySeeder::class);
+        $this->call(CountrySeeder::class);
+        $this->call(LanguageSeeder::class);
+        $this->call(SpotifyRestrictionSeeder::class);
+
     }
 }
