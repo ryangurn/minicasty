@@ -1,5 +1,9 @@
 # minicasty | cis 451/551 final project
 
+## repo
+
+[http://github.com/ryangurn/minicasty](http://github.com/ryangurn/minicasty)
+
 ## name
 
 ryan gurnick
