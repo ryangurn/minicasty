@@ -32,15 +32,10 @@
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
-                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
-
-                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
-
-                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
-
-                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
-
-                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports</a>
+                                    <a href="{{ route('dashboard') }}" class="px-3 py-2 rounded-md text-sm font-medium @if(Route::is('dashboard')) text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 @else text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 @endif">dashboard</a>
+                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium @if(Route::is('episodes')) text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 @else text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 @endif">episodes</a>
+                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium @if(Route::is('pages')) text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 @else text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 @endif">pages</a>
+                                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium @if(Route::is('settings')) text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 @else text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 @endif">settings</a>
                                 </div>
                             </div>
                         </div>

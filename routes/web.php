@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,20 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-$env = [];
-$env['navbar'] = true;
-
-Route::get('/', function () use ($env) {
-    $env['title'] = 'Home';
-    $env['navbar'] = false;
-
-    return view('welcome', compact('env'));
-})->name('home');
-
-
-Route::get('/dashboard', function() use ($env) {
-    $env['title'] = 'Dashboard';
-
-    return view('dashboard', compact('env'));
-})->name('dashboard');
+Route::get('/', [DashboardController::class, 'landing'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
