@@ -23,6 +23,7 @@ class Setting extends Model
         'value'
     ];
 
+    // cast values to php data types.
     protected $casts = [
         'value' => 'array'
     ];

@@ -27,4 +27,9 @@ class Category extends Model
         'name'
     ];
 
+    public function p()
+    {
+        return $this->hasOne(Category::class, 'parent', 'guid');
+    }
+
 }

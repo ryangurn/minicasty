@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Language;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -23,14 +24,17 @@ class DashboardController extends Controller
      * @return Application|Factory|View
      */
     public function landing () {
-        self::$env['title'] = 'Home';
+        self::$env['title'] = 'home';
         self::$env['navbar'] = false;
 
         return view('welcome', ['env' => self::$env]);
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function dashboard () {
-        self::$env['title'] = 'Dashboard';
+        self::$env['title'] = 'dashboard';
 
         return view('dashboard', ['env' => self::$env]);
     }
