@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguageSeeder::class);
         $this->call(SpotifyRestrictionSeeder::class);
 
+        $this->call(SettingSeeder::class);
+
     }
 }
