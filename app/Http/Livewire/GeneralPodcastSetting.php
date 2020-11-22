@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Language;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class GeneralPodcastSetting extends Component
 {
+    use WithFileUploads;
+
     public $title;
     public $description;
     public $image;
@@ -19,7 +22,8 @@ class GeneralPodcastSetting extends Component
     public $owner_name;
     public $owner_email;
 
-    protected $rules = [
+    protected $rules =
+    [
         'title' => 'required|min:5|max:45',
         'description' => 'required|min:5|max:1024',
         'image' => 'required|file|image',
@@ -30,7 +34,19 @@ class GeneralPodcastSetting extends Component
         'link' => 'required|url',
         'owner_name' => 'required|min:3|max:45',
         'owner_email' => 'required|email',
-     ];
+    ];
+
+    public function updated($property)
+    {
+        return $this->validateOnly($property);
+    }
+
+    public function save()
+    {
+        $validated = $this->validate();
+
+        dd($validated);
+    }
 
     public function render()
     {
