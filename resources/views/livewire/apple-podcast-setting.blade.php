@@ -44,7 +44,7 @@
                             <div class="col-span-6 sm:col-span-4">
                                 <div class="flex items-start @error('itunes_block') mb-4 @enderror ">
                                     <div class="flex items-center h-5">
-                                        <input wire:model="itunes_block" name="itunes_block" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        <input wire:model="itunes_block" value="true" name="itunes_block" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                     </div>
                                     <div class="ml-3 text-sm">
                                         <label for="itunes_block" class="font-medium text-gray-700">Podcast Blocked</label>
@@ -56,7 +56,7 @@
                             <div class="col-span-6 sm:col-span-4">
                                 <div class="flex items-start @error('itunes_complete') mb-4 @enderror ">
                                     <div class="flex items-center h-5">
-                                        <input wire:model="itunes_complete" name="itunes_complete" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        <input wire:model="itunes_complete" value="true" name="itunes_complete" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                     </div>
                                     <div class="ml-3 text-sm">
                                         <label for="itunes_complete" class="font-medium text-gray-700">Podcast Completed</label>

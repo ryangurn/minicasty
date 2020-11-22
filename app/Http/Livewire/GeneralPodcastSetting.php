@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Language;
+use App\Models\Setting;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -36,6 +37,28 @@ class GeneralPodcastSetting extends Component
         'owner_email' => 'required|email',
     ];
 
+    public function mount()
+    {
+        $title = Setting::where('key', '=', 'podcast-title')->first()->value;
+        $description = Setting::where('key', '=', 'podcast-description')->first()->value;
+        $language = Setting::where('key', '=', 'podcast-language')->first()->value;
+        $categories = Setting::where('key', '=', 'podcast-category')->first()->value;
+        $explicit = Setting::where('key', '=', 'podcast-explicit')->first()->value;
+        $author = Setting::where('key', '=', 'podcast-author')->first()->value;
+        $link = Setting::where('key', '=', 'podcast-link')->first()->value;
+        $owner = Setting::where('key', '=', 'podcast-owners')->first()->value;
+
+        $this->title = $title;
+        $this->description = $description;
+        $this->language = $language;
+        $this->categories = $categories;
+        $this->explicit = $explicit == "false";
+        $this->author = $author;
+        $this->link = $link;
+        $this->owner_name = $owner['name'];
+        $this->owner_email = $owner['email'];
+    }
+
     public function updated($property)
     {
         return $this->validateOnly($property);
@@ -50,7 +73,7 @@ class GeneralPodcastSetting extends Component
 
     public function render()
     {
-        $languages = Language::where('2_digit', '<>', NULL)->get();
+        $languages = Language::where('2_digit', '<>', NULL)->orderBy('name', 'asc')->get();
         $c = Category::all();
 
         return view('livewire.general-podcast-setting', compact('languages', 'c'));
