@@ -23,8 +23,6 @@ class SettingController extends Controller
     public function index()
     {
         self::$env['title'] = 'settings';
-        self::$env['languages'] = Language::where('2_digit', '<>', NULL)->get();
-        self::$env['categories'] = Category::all();
 
         return view('settings.index', ['env' => self::$env]);
     }
