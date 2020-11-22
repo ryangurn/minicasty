@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Language;
 use App\Models\Setting;
 use Illuminate\Database\Seeder;
 
@@ -14,13 +16,17 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        $en = Language::where('name', '=', 'English')->first()->guid;
+        $arts = Category::where('name', '=', 'Arts')->first()->guid;
+        $books = Category::where('name', '=', 'Books')->first()->guid;
+
         Setting::firstOrCreate(['key' => 'podcast-title', 'value' => 'Hiking Treks']);
         Setting::firstOrCreate(['key' => 'podcast-description', 'value' => 'Love to get outdoors and discover nature&apos;s treasures? Hiking Treks is the
       show for you. We review hikes and excursions, review outdoor gear and interview
       a variety of naturalists and adventurers. Look for new episodes each week.']);
         Setting::firstOrCreate(['key' => 'podcast-image', 'value' => NULL]);
-        Setting::firstOrCreate(['key' => 'podcast-language', 'value' => '6987f56e-2a95-11eb-90d3-0242ac110002']);
-        Setting::firstOrCreate(['key' => 'podcast-category', 'value' => ['67d78cb8-2a95-11eb-90d3-0242ac110002', '67eb33c6-2a95-11eb-90d3-0242ac110002', ]]);
+        Setting::firstOrCreate(['key' => 'podcast-language', 'value' => $en]);
+        Setting::firstOrCreate(['key' => 'podcast-category', 'value' => [$arts, $books]]);
         Setting::firstOrCreate(['key' => 'podcast-explicit', 'value' => 'false']);
         Setting::firstOrCreate(['key' => 'podcast-author', 'value' => 'The Sunset Explorers']);
         Setting::firstOrCreate(['key' => 'podcast-link', 'value' => 'https://www.apple.com/itunes/podcasts/']);
