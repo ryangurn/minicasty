@@ -14,6 +14,12 @@
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
+                            @if (session()->has('saved'))
+                                <div class="mb-4 col-span-6 sm:col-span-4">
+                                    <span class="mb-4 pt-2 pb-2 pl-4 pr-4 rounded-full text-green-700 bg-green-100">{{ session('saved') }}</span>
+                                </div>
+                            @endif
+
                             <div class="col-span-6 sm:col-span-4">
                                 <label for="itunes_title" class="block text-sm font-medium text-gray-700">iTunes Title</label>
                                 <input wire:model="itunes_title" type="text" name="itunes_title" class="border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2 @error('itunes_title') mb-4 @enderror ">
