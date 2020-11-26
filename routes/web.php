@@ -18,4 +18,4 @@ Route::get('/', [DashboardController::class, 'landing'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 
-Route::get('/asset/{asset:guid}', [AssetController::class, 'view']);
+Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
