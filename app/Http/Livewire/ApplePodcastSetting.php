@@ -52,7 +52,31 @@ class ApplePodcastSetting extends Component
     {
         $validated = $this->validate();
 
-        dd($validated);
+        $itunes_title = Setting::where('key', '=', 'podcast-itunes-title')->first();
+        $itunes_title->value = $validated['itunes_title'];
+        $itunes_title->save();
+
+        $itunes_type = Setting::where('key', '=', 'podcast-itunes-type')->first();
+        $itunes_type->value = $validated['itunes_type'];
+        $itunes_type->save();
+
+        $copyright = Setting::where('key', '=', 'podcast-itunes-copyright')->first();
+        $copyright->value = $validated['copyright'];
+        $copyright->save();
+
+        $new_feed_url = Setting::where('key', '=', 'podcast-itunes-new-feed-url')->first();
+        $new_feed_url->value = $validated['new_feed_url'];
+        $new_feed_url->save();
+
+        $block = Setting::where('key', '=', 'podcast-itunes-block')->first();
+        $block->value = $validated['itunes_block'];
+        $block->save();
+
+        $complete = Setting::where('key', '=', 'podcast-itunes-complete')->first();
+        $complete->value = $validated['itunes_complete'];
+        $complete->save();
+
+        session()->flash('saved', 'updated general settings!');
     }
 
     public function render()

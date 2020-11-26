@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Asset;
 use App\Models\Category;
 use App\Models\Language;
 use App\Models\Setting;
@@ -28,7 +29,7 @@ class GeneralPodcastSetting extends Component
     [
         'title' => 'required|min:5|max:45',
         'description' => 'required|min:5|max:1024',
-        'image' => 'required|file|image',
+        'image' => 'nullable|file|image',
         'language' => 'required|exists:languages,guid',
         'categories' => 'required|exists:categories,guid',
         'explicit' => 'required',
@@ -49,6 +50,8 @@ class GeneralPodcastSetting extends Component
         $link = Setting::where('key', '=', 'podcast-link')->first()->value;
         $owner = Setting::where('key', '=', 'podcast-owners')->first()->value;
         $image = Setting::where('key', '=', 'podcast-image')->first()->value;
+        if ($image != null)
+            $asset = Asset::where('guid', '=', $image)->first()->guid;
 
         $this->title = $title;
         $this->description = $description;
@@ -59,7 +62,11 @@ class GeneralPodcastSetting extends Component
         $this->link = $link;
         $this->owner_name = $owner['name'];
         $this->owner_email = $owner['email'];
-        $this->image = $image;
+        if ($image != null):
+            $this->image = $asset;
+        else:
+            $this->image = null;
+        endif;
     }
 
     public function updated($property)
@@ -71,11 +78,19 @@ class GeneralPodcastSetting extends Component
     {
         $validated = $this->validate();
 
-        // todo: change this to use the assets table
+        # image content (stored to assets and referenced in settings)
+        $image = Setting::where('key', '=', 'podcast-image')->first();
         $image_location = md5(time()). '.'. $this->image->getClientOriginalExtension();
         $this->image->storeAs('assets', $image_location);
-        $image = Setting::where('key', '=', 'podcast-image')->first();
-        $image->value = $image_location;
+        $asset = Asset::create([
+            'guid' => $image->guid,
+            'image' => true,
+            'audio' => false,
+            'path' => $image_location,
+            'accessible' => true
+        ]);
+        $item = Asset::where('guid', '=', $image->guid)->first();
+        $image->value = $item->guid;
         $image->save();
 
         # handle written content

@@ -38,9 +38,9 @@
 
                                 @if(method_exists($image, 'temporaryUrl'))
                                     <img src="{{ $image->temporaryUrl() }}" class="w-40 h-40 rounded mt-2 mb-2">
-                                @else
+                                @elseif($image != null)
                                     {{-- todo: utilize assets uri for getting the saved image --}}
-                                    <img src="" class="w-40 h-40 rounded mt-2 mb-2">
+                                    <img class="w-40 h-40 rounded mt-2 mb-2" src="{{ route('asset', $image) }}">
                                 @endif
 
                                 @error('image') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
