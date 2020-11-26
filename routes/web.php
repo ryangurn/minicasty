@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\EpisodeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +18,6 @@ use App\Http\Controllers\AssetController;
 Route::get('/', [DashboardController::class, 'landing'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/settings', [SettingController::class, 'index'])->name('settings');
+Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
 
 Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
