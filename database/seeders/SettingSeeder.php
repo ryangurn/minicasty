@@ -21,9 +21,7 @@ class SettingSeeder extends Seeder
         $books = Category::where('name', '=', 'Books')->first()->guid;
 
         Setting::firstOrCreate(['key' => 'podcast-title', 'value' => 'Hiking Treks']);
-        Setting::firstOrCreate(['key' => 'podcast-description', 'value' => 'Love to get outdoors and discover nature&apos;s treasures? Hiking Treks is the
-      show for you. We review hikes and excursions, review outdoor gear and interview
-      a variety of naturalists and adventurers. Look for new episodes each week.']);
+        Setting::firstOrCreate(['key' => 'podcast-description', 'value' => 'Love to get outdoors and discover nature&apos;s treasures? Hiking Treks is the show for you. We review hikes and excursions, review outdoor gear and interview a variety of naturalists and adventurers. Look for new episodes each week.']);
         Setting::firstOrCreate(['key' => 'podcast-image', 'value' => NULL]);
         Setting::firstOrCreate(['key' => 'podcast-language', 'value' => $en]);
         Setting::firstOrCreate(['key' => 'podcast-category', 'value' => [$arts, $books]]);
