@@ -17,7 +17,6 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->string('guid')->unique();
             $table->string('title', 45);
-            $table->string('author', 45);
             // foreign key (audio) on assets.guid
             $table->string('audio');
             $table->timestamp('publishing_date')->nullable();
