@@ -27,10 +27,10 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
-                                <label for="itunes_type" class="block text-sm font-medium text-gray-700">description</label>
+                                <label for="itunes_type" class="block text-sm font-medium text-gray-700">itunes type</label>
                                 <select wire:model="itunes_type" name="itunes_type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('itunes_type') mb-4 @enderror ">
-                                    <option value="episodic">Episodic</option>
-                                    <option value="serial">Serial</option>
+                                    <option value="episodic">episodic</option>
+                                    <option value="serial">serial</option>
                                 </select>
                                 @error('itunes_type') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
