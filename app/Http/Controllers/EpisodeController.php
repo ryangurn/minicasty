@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Episode;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,6 +22,7 @@ class EpisodeController extends Controller
     {
         self::$env['title'] = 'episodes';
 
-        return view('episodes.index', ['env' => self::$env]);
+        $episodes = Episode::all();
+        return view('episodes.index', ['env' => self::$env, 'episodes' => $episodes]);
     }
 }
