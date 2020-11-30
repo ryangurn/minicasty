@@ -16,35 +16,35 @@
                         <div class="grid grid-cols-6 gap-6">
                             @if (session()->has('saved'))
                                 <div class="mb-4 col-span-6 sm:col-span-4">
-                                    <span class="mb-4 pt-2 pb-2 pl-4 pr-4 rounded-full text-green-700 bg-green-100">{{ session('saved') }}</span>
+                                    <span class="mb-4 pt-2 pb-2 pl-4 pr-4 rounded-full text-green-700 bg-green-100">{{ strtolower(session('saved')) }}</span>
                                 </div>
                             @endif
 
                             <div class="col-span-6 sm:col-span-4">
-                                <label for="itunes_title" class="block text-sm font-medium text-gray-700">iTunes Title</label>
+                                <label for="itunes_title" class="block text-sm font-medium text-gray-700">itunes title</label>
                                 <input wire:model="itunes_title" type="text" name="itunes_title" class="border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2 @error('itunes_title') mb-4 @enderror ">
-                                @error('itunes_title') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
+                                @error('itunes_title') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
-                                <label for="itunes_type" class="block text-sm font-medium text-gray-700">Description</label>
+                                <label for="itunes_type" class="block text-sm font-medium text-gray-700">description</label>
                                 <select wire:model="itunes_type" name="itunes_type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('itunes_type') mb-4 @enderror ">
                                     <option value="episodic">Episodic</option>
                                     <option value="serial">Serial</option>
                                 </select>
-                                @error('itunes_type') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
+                                @error('itunes_type') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
-                                <label for="copyright" class="block text-sm font-medium text-gray-700">Copyright</label>
+                                <label for="copyright" class="block text-sm font-medium text-gray-700">copyright</label>
                                 <input wire:model="copyright" type="text" name="copyright" class="border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2 @error('copyright') mb-4 @enderror ">
-                                @error('copyright') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
+                                @error('copyright') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
-                                <label for="new_feed_url" class="block text-sm font-medium text-gray-700">New Feed URL</label>
+                                <label for="new_feed_url" class="block text-sm font-medium text-gray-700">new feed url</label>
                                 <input wire:model="new_feed_url" type="text" name="new_feed_url" class="border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2 @error('new_feed_url') mb-4 @enderror ">
-                                @error('new_feed_url') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
+                                @error('new_feed_url') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
@@ -53,10 +53,10 @@
                                         <input wire:model="itunes_block" value="true" name="itunes_block" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                     </div>
                                     <div class="ml-3 text-sm">
-                                        <label for="itunes_block" class="font-medium text-gray-700">Podcast Blocked</label>
+                                        <label for="itunes_block" class="font-medium text-gray-700">podcast blocked</label>
                                     </div>
                                 </div>
-                                @error('itunes_block') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
+                                @error('itunes_block') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-4">
@@ -65,10 +65,10 @@
                                         <input wire:model="itunes_complete" value="true" name="itunes_complete" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                     </div>
                                     <div class="ml-3 text-sm">
-                                        <label for="itunes_complete" class="font-medium text-gray-700">Podcast Completed</label>
+                                        <label for="itunes_complete" class="font-medium text-gray-700">podcast completed</label>
                                     </div>
                                 </div>
-                                @error('itunes_complete') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ $message }}</span> @enderror
+                                @error('itunes_complete') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
                             </div>
 
                         </div>
@@ -76,7 +76,7 @@
 
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Save
+                            save
                         </button>
                     </div>
                 </div>
