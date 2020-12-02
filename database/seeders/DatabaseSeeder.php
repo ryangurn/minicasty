@@ -17,11 +17,14 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(LanguageSeeder::class);
-        $this->call(SpotifyRestrictionSeeder::class);
 
         $this->call(SettingSeeder::class);
 
         $this->call(AssetSeeder::class);
+        $this->call(EpisodeSeeder::class);
+        $this->call(ITunesSeeder::class);
+        $this->call(SpotifySeeder::class);
+        $this->call(SpotifyRestrictionSeeder::class);
 
     }
 }
