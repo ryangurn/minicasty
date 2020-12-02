@@ -15,7 +15,7 @@
     </style>
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    @livewireStyles
+    @livewireStyles()
 </head>
 <body class="antialiased">
 
@@ -58,6 +58,6 @@
         </div>
     </div>
 
-    @livewireScripts
+    @livewireScripts()
 </body>
 </html>
