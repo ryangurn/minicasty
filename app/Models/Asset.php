@@ -18,7 +18,7 @@ class Asset extends Model
 
     // which elements can be filled by mass assignment
     protected $fillable = [
-        'guid',
+        'rel',
         'image',
         'audio',
         'path',
