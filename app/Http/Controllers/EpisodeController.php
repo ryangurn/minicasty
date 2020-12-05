@@ -36,4 +36,11 @@ class EpisodeController extends Controller
 
         return view('episodes.info', ['env' => self::$env, 'episode' => $episode]);
     }
+
+    public function update(Episode $episode)
+    {
+        self::$env['title'] = 'update: '. $episode->title;
+
+        return view('episodes.update', ['env' => self::$env, 'episode' => $episode]);
+    }
 }

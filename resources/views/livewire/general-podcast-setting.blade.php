@@ -39,7 +39,6 @@
                                 @if(method_exists($image, 'temporaryUrl'))
                                     <img src="{{ $image->temporaryUrl() }}" class="w-40 h-40 rounded mt-2 mb-2">
                                 @elseif($image != null)
-                                    {{-- todo: utilize assets uri for getting the saved image --}}
                                     <img class="w-40 h-40 rounded mt-2 mb-2" src="{{ route('asset', $image) }}">
                                 @endif
 
