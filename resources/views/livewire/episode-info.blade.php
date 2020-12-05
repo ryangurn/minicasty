@@ -36,6 +36,22 @@
                 </div>
                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt class="text-sm font-medium text-gray-500">
+                        duration
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ date('i:s', ceil(\wapmorgan\MediaFile\MediaFile::open(\Illuminate\Support\Facades\Storage::disk('assets')->path($episode->file->path))->getAudio()->getLength())) }}
+                    </dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        bit rate
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ \wapmorgan\MediaFile\MediaFile::open(\Illuminate\Support\Facades\Storage::disk('assets')->path($episode->file->path))->getAudio()->getBitRate() }} Kbps
+                    </dd>
+                </div>
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
                         publishing date
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
