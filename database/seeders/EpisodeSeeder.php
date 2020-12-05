@@ -16,7 +16,7 @@ class EpisodeSeeder extends Seeder
     public function run()
     {
         $e1 = Asset::where('path', '=', '0c940de445d5fd9653614eb31c419c7c.mp3')->first();
-        Episode::firstOrCreate(['title' => 'Hiking Treks Trailer', 'description' => 'The Sunset Explorers share tips, techniques and recommendations for great hikes and adventures around the United States.', 'explicit' => 0, 'audio' => $e1->guid, 'publishing_date' => date("Y-m-d H:i:s", strtotime('Tue, 8 Jan 2019 01:15:00 GMT'))]);
+        Episode::firstOrCreate(['title' => 'Hiking Treks Trailer', 'description' => 'The Sunset Explorers share tips, techniques and recommendations for great hikes and adventures around the United States.', 'explicit' => 0, 'audio' => $e1->guid, 'publishing_date' => date("Y-m-d H:i:s", strtotime('Tue, 8 Jan 2017 01:15:00 GMT'))]);
 
         $e2 = Asset::where('path', '=', '0e0d5d47ea10c6965d889f4c3ec979c3.mp3')->first();
         Episode::firstOrCreate(['title' => 'S02 EP04 Mt. Hood, Oregon', 'description' => 'Tips for trekking around the tallest mountain in Oregon', 'explicit' => 0, 'audio' => $e2->guid, 'publishing_date' => date("Y-m-d H:i:s", strtotime('Tue, 07 May 2019 12:00:00 GMT'))]);

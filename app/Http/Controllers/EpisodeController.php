@@ -22,7 +22,18 @@ class EpisodeController extends Controller
     {
         self::$env['title'] = 'episodes';
 
-        $episodes = Episode::all();
+        $episodes = Episode::where('guid', '!=', null)->orderBy('publishing_date', 'asc')->get();
         return view('episodes.index', ['env' => self::$env, 'episodes' => $episodes]);
+    }
+
+    /**
+     * @param Episode $episode
+     * @return Application|Factory|View|void
+     */
+    public function info(Episode $episode)
+    {
+        self::$env['title'] = 'episode: '. $episode->title;
+
+        return view('episodes.info', ['env' => self::$env, 'episode' => $episode]);
     }
 }

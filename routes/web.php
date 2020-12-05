@@ -18,8 +18,11 @@ use App\Http\Controllers\EpisodeController;
 Route::get('/', [DashboardController::class, 'landing'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/settings', [SettingController::class, 'index'])->name('settings');
-Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
 
-Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
+Route::group(['prefix' => 'episodes'], function() {
+    Route::get('/', [EpisodeController::class, 'index'])->name('episodes');
+    Route::get('/{episode:guid}', [EpisodeController::class, 'info'])->name('info');
+});
+
 Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
 Route::get('/audio/{asset:guid}', [AssetController::class, 'audio'])->name('audio');

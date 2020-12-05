@@ -3,7 +3,7 @@
         <thead>
         <tr>
             <th class="w-2/3">podcast</th>
-            <th class="w-1/6">author</th>
+            <th class="w-1/6">publishing date</th>
             <th class="w-1/6">actions</th>
         </tr>
         </thead>
@@ -12,8 +12,8 @@
             @foreach($episodes as $episode)
         <tr>
             <td>{{ $episode->title }}</td>
-            <td>{{ $episode->author }}</td>
-            <td></td>
+            <td>{{ $episode->publishing_date }}</td>
+            <td><a href="{{ route('info', $episode->guid) }}">info</a> | <a href="">update</a> | <a href="">pages</a></td>
         </tr>
             @endforeach
         @else

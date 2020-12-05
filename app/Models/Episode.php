@@ -28,5 +28,8 @@ class Episode extends Model
     ];
 
     // relationships to come here...
-
+    public function audio()
+    {
+        return $this->hasOne(Asset::class, 'guid', 'audio');
+    }
 }
