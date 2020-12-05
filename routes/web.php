@@ -21,3 +21,5 @@ Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
 
 Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
+Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
+Route::get('/audio/{asset:guid}', [AssetController::class, 'audio'])->name('audio');
