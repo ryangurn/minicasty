@@ -59,7 +59,7 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-4">
-                                    <label for="image" class="block text-sm font-medium text-gray-700">audio <span class="text-red-700">*</span></label>
+                                    <label for="audio" class="block text-sm font-medium text-gray-700">audio <span class="text-red-700">*</span></label>
                                     <input wire:model="audio" type="file" name="image" class="@error('image') mb-4 @enderror border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2">
 
                                     @if(method_exists($audio, 'temporaryUrl'))
@@ -74,8 +74,8 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-4">
-                                    <label for="audio" class="block text-sm font-medium text-gray-700">image</label>
-                                    <input wire:model="audio" type="file" name="image" class="@error('image') mb-4 @enderror border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2">
+                                    <label for="image" class="block text-sm font-medium text-gray-700">image</label>
+                                    <input wire:model="image" type="file" name="image" class="@error('image') mb-4 @enderror border-solid border-2 border-grey-light mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2">
 
                                     @if(method_exists($image, 'temporaryUrl'))
                                         <img src="{{ $image->temporaryUrl() }}" class="w-40 h-40 rounded mt-2 mb-2">
@@ -89,7 +89,7 @@
                         </div>
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Save
+                                save
                             </button>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Asset;
 use Livewire\Component;
+use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 class EpisodeUpdate extends Component
@@ -19,7 +20,7 @@ class EpisodeUpdate extends Component
     public $audio;
 
     protected $rules = [
-        'title' => 'required|min:5|max:45',
+        'title' => 'required|min:5|max:90',
         'publishing_date' => 'required|date',
         'description' => 'required|min:5|max:1024',
         'explicit' => 'required',
@@ -46,10 +47,37 @@ class EpisodeUpdate extends Component
     {
         $validated = $this->validate();
 
-        // check if audio submitted is an asset already
-        if (Asset::where('guid', '=', $validated['audio'])->first() == null)
+        // check if audio submitted is an uploaded file
+        if (is_a($validated['audio'], TemporaryUploadedFile::class))
         {
+            $audio_location = md5(time()). '.'. $this->audio->getClientOriginalExtension();
+            $this->audio->storeAs('assets', $audio_location);
+            $aasset = Asset::firstOrNew([
+                'guid' => $this->episode->audio,
+                'image' => false,
+                'audio' => true,
+                'accessible' => true
+            ]);
+            $aasset->path = $audio_location;
+            $aasset->save();
+        }
 
+        // check if image submitted is an uploaded file
+        if (is_a($validated['image'], TemporaryUploadedFile::class))
+        {
+            $image_location = md5(time()). '.'. $this->image->getClientOriginalExtension();
+            $this->image->storeAs('assets', $image_location);
+            $iasset = Asset::firstOrNew([
+                'guid' => $this->episode->image,
+                'image' => false,
+                'audio' => true,
+                'accessible' => true
+            ]);
+            $iasset->path = $image_location;
+            $iasset->save();
+            $item = Asset::where('path', '=', $image_location)->first();
+            $this->episode->image = $item->guid;
+            $this->episode->save();
         }
 
         $this->episode->title = $validated['title'];
@@ -57,8 +85,7 @@ class EpisodeUpdate extends Component
         $this->episode->explicit = $validated['explicit'];
         $this->episode->save();
 
-        dump($this->episode);
-        dd($validated);
+        session()->flash('saved', 'updated episode!');
     }
 
     public function render()
