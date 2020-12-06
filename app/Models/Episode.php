@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Episode extends Model
 {
@@ -15,6 +16,8 @@ class Episode extends Model
     protected $primaryKey = 'guid';
     // declare the primary key type
     protected $keyType = 'string';
+
+    protected $dates = ['created_at', 'updated_at', 'publishing_date'];
 
     // which elements can be filled by mass assignment
     protected $fillable = [
@@ -28,8 +31,31 @@ class Episode extends Model
     ];
 
     // relationships to come here...
+
+    /**
+     * builds queries for asset relationship
+     * @return HasOne
+     */
     public function file()
     {
         return $this->hasOne(Asset::class, 'guid', 'audio');
+    }
+
+    /**
+     * builds queries for itunes info relationship
+     * @return HasOne
+     */
+    public function itunes()
+    {
+        return $this->hasOne(iTunes::class, 'guid', 'guid');
+    }
+
+    /**
+     * builds queries for spotify info relationship
+     * @return HasOne
+     */
+    public function spotify()
+    {
+        return $this->hasOne(Spotify::class, 'guid', 'guid');
     }
 }
