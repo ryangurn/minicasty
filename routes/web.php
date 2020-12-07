@@ -32,4 +32,6 @@ Route::group(['prefix' => 'assets'], function(){
 });
 
 Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
+Route::head('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
 Route::get('/audio/{asset:guid}', [AssetController::class, 'audio'])->name('audio');
+Route::head('/audio/{asset:guid}', [AssetController::class, 'audio'])->name('audio');
