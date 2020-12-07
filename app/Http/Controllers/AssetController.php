@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Category;
 use App\Models\Episode;
+use App\Models\Language;
+use App\Models\Setting;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -37,4 +40,60 @@ class AssetController extends Controller
             ->header('Content-Length', Storage::disk('assets')->size($file))
             ->header('Content-Type', 'audio/mpeg');
     }
+
+    public function itunes()
+    {
+        $podcast_title = Setting::where('key', '=', 'podcast-title')->first()->value;
+        $podcast_description = Setting::where('key', '=', 'podcast-description')->first()->value;
+        $podcast_image = Setting::where('key', '=', 'podcast-image')->first()->value;
+        $podcast_language = Setting::where('key', '=', 'podcast-language')->first()->value;
+        $language = Language::where('guid', '=', $podcast_language)->first()->{"2_digit"};
+
+        $podcast_categories = Setting::where('key', '=', 'podcast-category')->first()->value;
+        $categories = [];
+        foreach($podcast_categories as $pc)
+        {
+            $c = Category::where('guid', '=', $pc)->first();
+            if ($c->category != null)
+            {
+                $categories[$c->category->name][] = $c->name;
+            }
+            else
+            {
+                $categories[] = $c->name;
+            }
+        }
+        $podcast_explicit = Setting::where('key', '=', 'podcast-explicit')->first()->value;
+        $podcast_author = Setting::where('key', '=', 'podcast-author')->first()->value;
+        $podcast_link = Setting::where('key', '=', 'podcast-link')->first()->value;
+        $podcast_owner = Setting::where('key', '=', 'podcast-owners')->first()->value;
+        $podcast_itunes_title = Setting::where('key', '=', 'podcast-itunes-title')->first()->value;
+        $podcast_itunes_type = Setting::where('key', '=', 'podcast-itunes-type')->first()->value;
+        $podcast_copyright = Setting::where('key', '=', 'podcast-itunes-copyright')->first()->value;
+        $podcast_new_feed_url = Setting::where('key', '=', 'podcast-itunes-new-feed-url')->first()->value;
+        $podcast_itunes_block = Setting::where('key', '=', 'podcast-itunes-block')->first()->value;
+        $podcast_itunes_complete = Setting::where('key', '=', 'podcast-itunes-complete')->first()->value;
+
+        $episodes = Episode::all();
+
+        return response()
+            ->view('assets.itunes', compact('podcast_title',
+'podcast_description',
+            'podcast_image',
+            'language',
+            'categories',
+            'podcast_explicit',
+            'podcast_author',
+            'podcast_link',
+            'podcast_owner',
+            'podcast_itunes_title',
+            'podcast_itunes_type',
+            'podcast_copyright',
+            'podcast_new_feed_url',
+            'podcast_itunes_block',
+            'podcast_itunes_complete',
+            'episodes'))
+            ->header('Content-Type', 'text/xml');
+    }
+
 }
