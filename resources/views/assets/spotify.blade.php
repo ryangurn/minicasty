@@ -32,7 +32,13 @@
         <itunes:type>{{ strtolower($podcast_itunes_type) }}</itunes:type>
         @if (isset($podcast_spotify_country) && $podcast_spotify_country != null)
             <media:restriction type="country" relationship="allow">
+                @if(!is_array($podcast_spotify_country))
                 {{ \App\Models\Country::where('guid', '=', $podcast_spotify_country)->first()->{"2_digit"} }}
+                @else
+                    @foreach($podcast_spotify_country as $res)
+                    {{ \App\Models\Country::where('guid', '=', $res)->first()->{"2_digit"} }}
+                    @endforeach
+                @endif
             </media:restriction>
         @endif
         @if (isset($podcast_spotify_limit) && $podcast_spotify_limit != null)
