@@ -26,5 +26,8 @@ class Spotify extends Model
     ];
 
     // relationships to come here...
-
+    public function countries()
+    {
+        return $this->hasMany(SpotifyRestriction::class, 'spotify', 'guid');
+    }
 }

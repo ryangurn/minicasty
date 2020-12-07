@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Country extends Model
 {
-    use HasFactory;
-
     // the table name explicitly defined
     protected $table = 'countries';
     // declare the primary key
