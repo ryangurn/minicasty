@@ -41,6 +41,11 @@ class Episode extends Model
         return $this->hasOne(Asset::class, 'guid', 'audio');
     }
 
+    public function image_file()
+    {
+        return $this->hasOne(Asset::class, 'guid', 'image');
+    }
+
     /**
      * builds queries for itunes info relationship
      * @return HasOne
