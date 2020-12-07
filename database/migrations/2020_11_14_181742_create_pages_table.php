@@ -19,8 +19,8 @@ class CreatePagesTable extends Migration
             $table->string('episode');
             $table->string('slug', 45);
             $table->string('title', 45);
-            $table->boolean('display_podcast')->nullable();
-            $table->boolean('display_episode')->nullable();
+            $table->boolean('display_podcast')->default(0)->nullable();
+            $table->boolean('display_episode')->default(0)->nullable();
             $table->timestamps();
 
             $table->primary('guid');
