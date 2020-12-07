@@ -39,7 +39,7 @@ class PageCreate extends Component
         $page->episode = $validated['episode'];
         $page->save();
 
-        session()->flash('saved', 'created page!');
+//        session()->flash('saved', 'created page!');
 
         redirect()->route('pages');
 

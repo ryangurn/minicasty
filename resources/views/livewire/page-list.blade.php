@@ -34,7 +34,7 @@
                                         <div class="text-sm text-gray-900">{{ $page->title }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="" class="text-indigo-600 hover:text-indigo-900">info</a> <a href="" class="text-blue-600 hover:text-blue-900">update</a>
+                                        <a href="{{ route('pages.info', $page->guid) }}" class="text-indigo-600 hover:text-indigo-900">info</a> <a href="" class="text-blue-600 hover:text-blue-900">update</a>
                                     </td>
                                 </tr>
                             @endforeach

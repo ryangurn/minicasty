@@ -23,4 +23,11 @@ class PageController extends Controller
 
         return view('pages.create', ['env' => self::$env]);
     }
+
+    public function info(Page $page)
+    {
+        self::$env['title'] = 'page: '. $page->title;
+
+        return view('pages.info', ['page' => $page, 'env' => self::$env]);
+    }
 }
