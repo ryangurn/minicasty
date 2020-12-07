@@ -27,6 +27,16 @@ class EpisodeController extends Controller
     }
 
     /**
+     *
+     */
+    public function create()
+    {
+        self::$env['title'] = 'create episode';
+
+        return view('episodes.create', ['env' => self::$env]);
+    }
+
+    /**
      * @param Episode $episode
      * @return Application|Factory|View|void
      */
@@ -37,6 +47,10 @@ class EpisodeController extends Controller
         return view('episodes.info', ['env' => self::$env, 'episode' => $episode]);
     }
 
+    /**
+     * @param Episode $episode
+     * @return Application|Factory|View
+     */
     public function update(Episode $episode)
     {
         self::$env['title'] = 'update: '. $episode->title;

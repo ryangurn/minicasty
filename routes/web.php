@@ -21,6 +21,7 @@ Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 
 Route::group(['prefix' => 'episodes'], function() {
     Route::get('/', [EpisodeController::class, 'index'])->name('episodes');
+    Route::get('/create', [EpisodeController::class, 'create'])->name('create');
     Route::get('/update/{episode:guid}', [EpisodeController::class, 'update'])->name('update');
     Route::get('/{episode:guid}', [EpisodeController::class, 'info'])->name('info');
 });
