@@ -23,6 +23,7 @@ Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 Route::group(['prefix' => 'pages'], function() {
     Route::get('/', [PageController::class, 'index'])->name('pages');
     Route::get('/create', [PageController::class, 'create'])->name('pages.create');
+    Route::get('/update/{page:guid}', [PageController::class, 'update'])->name('pages.update');
     Route::get('/{page:guid}', [PageController::class, 'info'])->name('pages.info');
 });
 

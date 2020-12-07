@@ -30,4 +30,11 @@ class PageController extends Controller
 
         return view('pages.info', ['page' => $page, 'env' => self::$env]);
     }
+
+    public function update(Page $page)
+    {
+        self::$env['title'] = 'update page: '. $page->title;
+
+        return view('pages.update', ['page' => $page, 'env' => self::$env]);
+    }
 }
