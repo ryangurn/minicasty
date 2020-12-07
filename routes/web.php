@@ -26,5 +26,10 @@ Route::group(['prefix' => 'episodes'], function() {
     Route::get('/{episode:guid}', [EpisodeController::class, 'info'])->name('info');
 });
 
+Route::group(['prefix' => 'assets'], function(){
+    Route::get('/itunes', [AssetController::class, 'itunes'])->name('itunes');
+    Route::get('/spotify', [AssetController::class, 'spotify'])->name('spotify');
+});
+
 Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
 Route::get('/audio/{asset:guid}', [AssetController::class, 'audio'])->name('audio');

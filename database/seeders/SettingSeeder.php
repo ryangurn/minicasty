@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\Setting;
 use Illuminate\Database\Seeder;
@@ -35,5 +36,11 @@ class SettingSeeder extends Seeder
         Setting::firstOrCreate(['key' => 'podcast-itunes-new-feed-url', 'value' => NULL]);
         Setting::firstOrCreate(['key' => 'podcast-itunes-block', 'value' => 'No']);
         Setting::firstOrCreate(['key' => 'podcast-itunes-complete', 'value' => 'No']);
+
+        $us = Country::where('name', '=', 'United States of America')->first()->guid;
+        // spotify settings
+        Setting::firstOrCreate(['key' => 'podcast-spotify-country', 'value' => $us]);
+        Setting::firstOrCreate(['key' => 'podcast-spotify-limit', 'value' => '10']);
+        Setting::firstOrCreate(['key' => 'podcast-spotify-origin', 'value' => $us]);
     }
 }
