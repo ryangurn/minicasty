@@ -22,6 +22,7 @@ Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 
 Route::group(['prefix' => 'pages'], function() {
     Route::get('/', [PageController::class, 'index'])->name('pages');
+    Route::get('/create', [PageController::class, 'create'])->name('pages.create');
 });
 
 Route::group(['prefix' => 'episodes'], function() {

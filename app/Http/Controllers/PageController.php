@@ -16,4 +16,11 @@ class PageController extends Controller
 
         return view('pages.index', ['pages' => $pages, 'env' => self::$env]);
     }
+
+    public function create()
+    {
+        self::$env['title'] = 'create page';
+
+        return view('pages.create', ['env' => self::$env]);
+    }
 }

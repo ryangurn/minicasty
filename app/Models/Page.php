@@ -31,8 +31,8 @@ class Page extends Model
         'display_episode' => 'bool'
     ];
 
-    public function episode()
+    public function getEpisode()
     {
-        $this->hasOne(Episode::class, 'episode', 'guid');
+        return $this->hasOne(Episode::class, 'guid', 'episode');
     }
 }
