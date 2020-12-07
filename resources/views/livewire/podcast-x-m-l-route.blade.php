@@ -8,7 +8,7 @@
                 </p>
             </div>
         </div>
-        <div class="mt-5 md:mt-0 md:col-span-2 text-xs text-green-600">
+        <div class="mt-7 md:mt-7 md:col-span-2 text-xs text-green-600">
             here are the url's to access the two different xml feeds.<br />
             spotify: <a href="{{ route('spotify') }}">{{ route('spotify') }}</a><br />
             itunes: <a href="{{ route('itunes') }}">{{ route('itunes') }}</a>
