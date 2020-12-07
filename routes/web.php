@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,10 @@ use App\Http\Controllers\EpisodeController;
 Route::get('/', [DashboardController::class, 'landing'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/settings', [SettingController::class, 'index'])->name('settings');
+
+Route::group(['prefix' => 'pages'], function() {
+    Route::get('/', [PageController::class, 'index'])->name('pages');
+});
 
 Route::group(['prefix' => 'episodes'], function() {
     Route::get('/', [EpisodeController::class, 'index'])->name('episodes');

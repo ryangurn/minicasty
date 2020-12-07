@@ -30,4 +30,9 @@ class Page extends Model
         'display_podcast' => 'bool',
         'display_episode' => 'bool'
     ];
+
+    public function episode()
+    {
+        $this->hasOne(Episode::class, 'episode', 'guid');
+    }
 }
