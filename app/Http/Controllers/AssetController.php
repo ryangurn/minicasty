@@ -18,6 +18,8 @@ class AssetController extends Controller
 {
     public function view(Asset $asset)
     {
+        // check if accessible
+        if (!$asset->accessible) abort(404);
         $file = $asset->path;
         $content = Storage::disk('assets')->get($file);
 
@@ -27,7 +29,10 @@ class AssetController extends Controller
 
     public function audio(Asset $asset)
     {
+        // check if accessible
+        if (!$asset->accessible) abort(404);
         $file = $asset->path;
+
         // check if file exists
         if (!Storage::disk('assets')->exists($file))
         {
