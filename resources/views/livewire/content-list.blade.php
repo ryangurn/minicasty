@@ -26,7 +26,7 @@
                             @foreach($page->getContents as $content)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $content->getPage->title }}</div>
+                                        <div class="text-sm text-gray-900"><a class="hover:underline" href="{{ route('public', $content->getPage->slug) }}">{{ $content->getPage->title }}</a></div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">{{ $content->header }}<br />{{ $content->subtitle }}</div>
@@ -35,7 +35,7 @@
                                         <div class="text-sm text-gray-900">{{ substr($content->content, 0, 40) }}...</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="" class="text-blue-600 hover:text-blue-900">update</a>
+                                        <a href="{{ route('pages.content-update', $content->guid) }}" class="text-blue-600 hover:text-blue-900">update</a>
                                     </td>
                                 </tr>
                             @endforeach

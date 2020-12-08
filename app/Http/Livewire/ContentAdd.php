@@ -31,7 +31,7 @@ class ContentAdd extends Component
         $content = new PageContent();
         $content->header = $validated['header'];
         $content->subtitle = $validated['subtitle'];
-        $content->content = parsedown($validated['content']);
+        $content->content = $validated['content'];
         $content->page = $this->page->guid;
         $content->save();
 

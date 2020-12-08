@@ -8,7 +8,7 @@
 				<br>
 				<div>
 					<span class="block text-indigo-600">time to get podding!</span>
-					<span class="block text-indigo-900 text-xs">Please make sure to use firefox or chrome, safari has some issues.</span>
+					<span class="block text-indigo-900 text-xs">please make sure to use firefox or chrome, safari has some issues.</span>
 				</div>
 			</h2>
 			<div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">

@@ -25,6 +25,7 @@ Route::group(['prefix' => 'pages'], function() {
     Route::get('/create', [PageController::class, 'create'])->name('pages.create');
     Route::get('/update/{page:guid}', [PageController::class, 'update'])->name('pages.update');
     Route::get('/content/{page:guid}', [PageController::class, 'content'])->name('pages.content');
+    Route::get('/content/update/{content:guid}', [PageController::class, 'content_update'])->name('pages.content-update');
     Route::get('/{page:guid}', [PageController::class, 'info'])->name('pages.info');
 });
 

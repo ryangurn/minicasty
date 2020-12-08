@@ -6,7 +6,7 @@
                 {{ $content->subtitle }}
             </p>
             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                {!! str_replace("<h1>", "<h1 class=\"text-9xl\">", str_replace("<h2>", "<h1 class=\"text-8xl\">", str_replace("<h3>", "<h1 class=\"text-7xl\">", str_replace("<h4>", "<h1 class=\"text-6xl\">", str_replace("<h5>", "<h1 class=\"text-5xl\">",$content->content))))) !!}
+                {!! str_replace("<h1>", "<h1 class=\"text-9xl\">", str_replace("<h2>", "<h1 class=\"text-8xl\">", str_replace("<h3>", "<h1 class=\"text-7xl\">", str_replace("<h4>", "<h1 class=\"text-6xl\">", str_replace("<h5>", "<h1 class=\"text-5xl\">", parsedown($content->content)))))) !!}
             </p>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\PageContent;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -43,6 +44,14 @@ class PageController extends Controller
         self::$env['title'] = 'page content for: '. $page->title;
 
         return view('pages.content', ['page' => $page, 'env' => self::$env]);
+    }
+
+    public function content_update(PageContent $content)
+    {
+        self::$env['title'] = $content->header;
+
+        return view('pages.content-update', ['content' => $content, 'env' => self::$env]);
+
     }
 
     public function public(Page $page)
