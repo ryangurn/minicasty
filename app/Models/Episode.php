@@ -63,4 +63,9 @@ class Episode extends Model
     {
         return $this->hasOne(Spotify::class, 'guid', 'guid');
     }
+
+    public function getPage()
+    {
+        return $this->hasOne(Page::class, 'episode', 'guid');
+    }
 }

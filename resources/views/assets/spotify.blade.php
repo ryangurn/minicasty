@@ -92,6 +92,9 @@
                         <itunes:keywords>{{ $item->spotify->keywords }}</itunes:keywords>
                     @endif
                     <itunes:episodeType>{{ strtolower(($item->itunes->type == 0) ? 'full' : (($item->itunes->type == 1) ? 'trailer' : 'bonus')) }}</itunes:episodeType>
+                    @if (isset($item->getPage) && $item->getPage->slug != null)
+                        <link>{{ route('public', $item->getPage->slug) }}</link>
+                    @endif
                 </item>
             @endforeach
         @endif

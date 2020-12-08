@@ -105,6 +105,9 @@
                     @if (isset($item->itunes->block) && $item->itunes->block == true)
                         <itunes:block>{{ 'Yes' }}</itunes:block>
                     @endif
+                    @if (isset($item->getPage) && $item->getPage->slug != null)
+                        <link>{{ route('public', $item->getPage->slug) }}</link>
+                    @endif
                 </item>
             @endforeach
         @endif
