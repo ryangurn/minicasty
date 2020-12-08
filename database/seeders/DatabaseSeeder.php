@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SpotifyRestrictionSeeder::class);
 
         $this->call(PageSeeder::class);
+        $this->call(PageContentSeeder::class);
     }
 }

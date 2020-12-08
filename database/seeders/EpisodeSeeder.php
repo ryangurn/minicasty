@@ -41,18 +41,5 @@ class EpisodeSeeder extends Seeder
 
         $e9 = Asset::where('path', '=', 'ae1dc1d69928a1bf6d98f2dd1429b571.mp3')->first();
         Episode::firstOrCreate(['title' => 'S01 EP01 Upper Priest Lake Trail to Continental Creek Trail', 'description' => 'We check out this powerfully scenic hike following the river in the Idaho Panhandle National Forests.', 'explicit' => 0, 'audio' => $e9->guid, 'publishing_date' => date("Y-m-d H:i:s", strtotime('Tue, 14 Aug 2018 01:15:00 +0000'))]);
-
-        /*
-         *  1	guid	varchar(255)	utf8mb4	utf8mb4_unicode_ci	NO	NULL
-         *  2	title	varchar(45)	utf8mb4	utf8mb4_unicode_ci	NO	NULL
-         *  3	audio	varchar(255)	utf8mb4	utf8mb4_unicode_ci	NO	NULL
-         *  4	publishing_date	timestamp	NULL	NULL	YES	NULL
-         *  5	description	varchar(45)	utf8mb4	utf8mb4_unicode_ci	NO	NULL
-         *  6	image	varchar(255)	utf8mb4	utf8mb4_unicode_ci	YES	NULL
-         *  7	explicit	tinyint(1)	NULL	NULL	NO	0
-         *  8	created_at	timestamp	NULL	NULL	YES	NULL
-         *  9	updated_at	timestamp	NULL	NULL	YES	NULL
-         *
-         */
     }
 }
