@@ -15,7 +15,7 @@
     </style>
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    @livewireStyles(['base_url' => ENV('APP_URL')])
+    @livewireStyles()
 </head>
 <body class="antialiased">
 
@@ -58,6 +58,6 @@
         </div>
     </div>
 
-    @livewireScripts(['base_url' => ENV('APP_URL')])
+    @livewireScripts()
 </body>
 </html>
