@@ -16,14 +16,14 @@
 
         <div id="jh-stats-neutral" class="flex flex-col justify-center px-4 py-4 mt-4 bg-white border border-gray-300 rounded sm:mt-0">
             <div>
-                <p class="text-3xl font-semibold text-center text-red-800">--</p>
+                <p class="text-3xl font-semibold text-center text-red-800">{{ $listens }}</p>
                 <p class="text-lg text-center text-red-500">Listens</p>
             </div>
         </div>
 
         <div id="jh-stats-neutral" class="flex flex-col justify-center px-4 py-4 mt-4 bg-white border border-gray-300 rounded sm:mt-0">
             <div>
-                <p class="text-3xl font-semibold text-center text-indigo-800">--</p>
+                <p class="text-3xl font-semibold text-center text-indigo-800">{{ $views }}</p>
                 <p class="text-lg text-center text-indigo-500">Page Views</p>
             </div>
         </div>
