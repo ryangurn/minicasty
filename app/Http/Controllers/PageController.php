@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageContent;
+use App\Models\Statistics;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -57,6 +58,10 @@ class PageController extends Controller
     public function public(Page $page)
     {
         self::$env['title'] = $page->title;
+
+        $stat = Statistics::firstOrNew(['page' => $page->guid]);
+        $stat->count = $stat->count + 1;
+        $stat->save();
 
         return view('pages.public', ['page' => $page, 'env' => self::$env]);
     }

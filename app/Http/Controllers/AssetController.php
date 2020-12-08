@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\Episode;
 use App\Models\Language;
 use App\Models\Setting;
+use App\Models\Statistics;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -36,6 +37,12 @@ class AssetController extends Controller
 
         $f = Storage::disk('assets')->get($file);
         $p = Storage::disk('assets')->path($file);
+
+        // add to the stats
+        $episode = Episode::where('audio', '=', $asset->guid)->first();
+        $stat = Statistics::firstOrNew(['episode' => $episode->guid]);
+        $stat->count = $stat->count + 1;
+        $stat->save();
 
         return response($f)
             ->header('Content-Length', Storage::disk('assets')->size($file))
