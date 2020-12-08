@@ -31,7 +31,7 @@
                         audio
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <iframe height="40px" src="{{ route('audio', $episode->audio) }}"></iframe>
+                        <video style="width:400px;height:50px" controls="" autoplay="" name="media"><source src="{{ route('audio', $episode->audio) }}" type="audio/mpeg"></video>
                     </dd>
                 </div>
                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

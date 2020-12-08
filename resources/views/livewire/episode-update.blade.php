@@ -67,7 +67,7 @@
                                         <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-green-700 bg-green-100">audio uploaded, refresh the page</span>
                                     </div>
                                     @elseif($audio != null)
-                                        <iframe class="mt-4" height="40px" src="{{ route('audio', $audio) }}"></iframe>
+                                        <video style="width:400px;height:50px" controls="" autoplay="" name="media"><source src="{{ route('audio', $audio) }}" type="audio/mpeg"></video>
                                     @endif
 
                                     @error('audio') <span class="pt-2 pb-2 pl-4 pr-4 rounded-full text-red-700 bg-red-100">{{ strtolower($message) }}</span> @enderror
