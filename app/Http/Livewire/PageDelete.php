@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Statistics;
 use Livewire\Component;
 
 class PageDelete extends Component
@@ -10,6 +11,9 @@ class PageDelete extends Component
 
     public function save()
     {
+        // delete statistics
+        Statistics::where('page', '=', $this->page->guid)->first()->delete();
+
         // delete content first
         $contents = $this->page->getContents;
         if (!$contents->isEmpty())

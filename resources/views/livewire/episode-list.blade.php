@@ -39,7 +39,7 @@
                                 <div class="text-sm text-gray-900">{{ $episode->publishing_date }} ({{ $episode->publishing_date->diffForHumans() }})</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="{{ route('info', $episode->guid) }}" class="text-indigo-600 hover:text-indigo-900">info</a> <a href="{{ route('update', $episode->guid) }}" class="text-blue-600 hover:text-blue-900">update</a> <a class="text-purple-600 hover:text-purple-900" href="{{ route('public', $episode->getPage->slug) }}">page</a>
+                                <a href="{{ route('info', $episode->guid) }}" class="text-indigo-600 hover:text-indigo-900">info</a> <a href="{{ route('update', $episode->guid) }}" class="text-blue-600 hover:text-blue-900">update</a> @if (isset($episode->getPage) && $episode->getPage->slug != null)<a class="text-purple-600 hover:text-purple-900" href="{{ route('public', $episode->getPage->slug) }}">page</a>@endif
                             </td>
                         </tr>
                             @endforeach

@@ -11,6 +11,8 @@ class SpotifyRestriction extends Model
 
     // the table name explicitly defined.
     protected $table = 'spotify_restrictions';
+    protected $keyType = 'string';
+    protected $primaryKey = 'spotify';
 
     // which elements can be filled by mass assignment
     protected $fillable = [
