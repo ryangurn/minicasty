@@ -7,13 +7,13 @@
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                episode
+                                page
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                slug
+                                header<br />subtitle
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                title
+                                content
                             </th>
                             <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 actions
@@ -21,27 +21,28 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @if(!$pages->isEmpty())
-                            @foreach($pages as $page)
+{{--                        {{ dd($page->getContents) }}--}}
+                        @if(!$page->getContents->isEmpty())
+                            @foreach($page->getContents as $content)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900"><a class="hover:underline" href="{{ route('public', $page->slug) }}">{{ $page->getEpisode->title }}</a></div>
+                                        <div class="text-sm text-gray-900">{{ $content->getPage->title }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $page->slug }}</div>
+                                        <div class="text-sm text-gray-900">{{ $content->header }}<br />{{ $content->subtitle }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $page->title }}</div>
+                                        <div class="text-sm text-gray-900">{{ substr($content->content, 0, 40) }}...</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="{{ route('pages.info', $page->guid) }}" class="text-indigo-600 hover:text-indigo-900">info</a> <a href="{{ route('pages.update', $page->guid) }}" class="text-blue-600 hover:text-blue-900">update</a> <a href="{{ route('pages.content', $page->guid) }}" class="text-purple-600 hover:text-purple-900">content</a>
+                                        <a href="" class="text-blue-600 hover:text-blue-900">update</a>
                                     </td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
                                 <td colspan="4" class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">no pages to be found yet.</div>
+                                    <div class="text-sm text-gray-900">no content to be found yet.</div>
                                 </td>
                             </tr>
                         @endif

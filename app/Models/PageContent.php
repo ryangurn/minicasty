@@ -29,4 +29,9 @@ class PageContent extends Model
     protected $casts = [
         'content' => 'json',
     ];
+
+    public function getPage()
+    {
+        return $this->hasOne(Page::class, 'guid', 'page');
+    }
 }

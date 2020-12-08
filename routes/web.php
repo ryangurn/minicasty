@@ -24,6 +24,7 @@ Route::group(['prefix' => 'pages'], function() {
     Route::get('/', [PageController::class, 'index'])->name('pages');
     Route::get('/create', [PageController::class, 'create'])->name('pages.create');
     Route::get('/update/{page:guid}', [PageController::class, 'update'])->name('pages.update');
+    Route::get('/content/{page:guid}', [PageController::class, 'content'])->name('pages.content');
     Route::get('/{page:guid}', [PageController::class, 'info'])->name('pages.info');
 });
 
@@ -41,3 +42,4 @@ Route::group(['prefix' => 'assets'], function(){
 
 Route::get('/asset/{asset:guid}', [AssetController::class, 'view'])->name('asset');
 Route::get('/audio/{asset:guid}', [AssetController::class, 'audio'])->name('audio');
+Route::get('/page/{page:slug}', [PageController::class, 'public'])->name('public');

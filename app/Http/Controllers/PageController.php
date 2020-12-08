@@ -37,4 +37,18 @@ class PageController extends Controller
 
         return view('pages.update', ['page' => $page, 'env' => self::$env]);
     }
+
+    public function content(Page $page)
+    {
+        self::$env['title'] = 'page content for: '. $page->title;
+
+        return view('pages.content', ['page' => $page, 'env' => self::$env]);
+    }
+
+    public function public(Page $page)
+    {
+        self::$env['title'] = $page->title;
+
+        return view('pages.public', ['page' => $page, 'env' => self::$env]);
+    }
 }

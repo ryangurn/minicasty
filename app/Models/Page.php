@@ -35,4 +35,9 @@ class Page extends Model
     {
         return $this->hasOne(Episode::class, 'guid', 'episode');
     }
+
+    public function getContents()
+    {
+        return $this->hasMany(PageContent::class, 'page');
+    }
 }
