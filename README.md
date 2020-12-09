@@ -14,7 +14,13 @@ minicasty
 
 ## connection information
 
-redacted for security here!
+port number: 3257
+
+hostname: ix-dev.cs.uoregon.edu
+
+guest account login/password: guest/guest
+
+database name: minicasty
 
 ## project url
 
@@ -22,6 +28,8 @@ http://ix.cs.uoregon.edu/~rgurnick/final
 
 ## highlights
 * so far just being allowed to use laravel is a major highlight.
+* using triggers to create guid on the mysql end when creating rows within select tables. it is far easier to do this with mysql than with laravel, however this has the side effect of causing issues with laravel's orm because mysql **technically** generates the information in the trigger after laravel creates memory for it... so there are some glitches that I work around.
+* adding markdown support for the pages contents is quite awesome so that the user doesnt need to code. it only supports headers and paragraph stuff though, everything else will display as unstyled text.
 
 ## high level description / summary
 this project is meant to provide podcast publishing services. there are many companies all over the internet that charge to generate an xml file and provide an interface to submit podcast information. i have decided to build a data model and interface to allow a normal person to self-host a podcast posting solution with some simple support. this application will handle metadata for one podcast and all of its episodes, it will handle secure file storage (utilizing the guid rather than allowing the user to access the file directly), and allow a user to publish a simple page online with content that relates to the podcast or an individual episode. 
