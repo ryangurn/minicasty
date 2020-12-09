@@ -14,13 +14,7 @@ minicasty
 
 ## connection information
 
-port number: 3257
-
-hostname: ix-dev.cs.uoregon.edu
-
-guest account login/password: guest/guest
-
-database name: minicasty
+redacted
 
 ## project url
 
