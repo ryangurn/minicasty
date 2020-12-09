@@ -10,9 +10,9 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">add content</h3>
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">update content</h3>
                     <p class="mt-1 text-sm text-gray-600">
-                        lets add some content to the page, each of these is a single section within the page.
+                        here you can update the content block, and just remember you can use markdown in the content text area below.
                     </p>
                 </div>
             </div>
